@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>おみくじ</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="fortune-container">
-        <h1>おみくじ</h1>
-        <p id="fortune-result"></p>
-        <button id="draw-fortune-button">占う</button>
-    </div>
-    <script src="script.js"></script>
+    <h1>おみくじ</h1>
+    <p id="fortune-result"></p>
+    <button id="draw-fortune-button">おみくじを引く</button>
+
+    <script>
+        const fortunes = ["大吉", "中吉", "小吉", "吉", "凶", "大凶"];
+
+        const drawFortuneButton = document.getElementById("draw-fortune-button");
+        const fortuneResult = document.getElementById("fortune-result");
+
+        drawFortuneButton.addEventListener("click", function () {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const randomFortune = fortunes[randomIndex];
+            fortuneResult.textContent = `運勢：${randomFortune}`;
+        });
+    </script>
 </body>
 </html>
